@@ -34,7 +34,7 @@ public class MicrosoftHomePage {
         ShoppingCart elementsShopping = new ShoppingCart(driver);
         elementsShopping.comparePrice();
 
-        //driver.quit();
+        driver.quit();
 
     }
 }

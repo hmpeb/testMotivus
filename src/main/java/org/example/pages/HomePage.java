@@ -2,10 +2,10 @@ package org.example.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.util.Arrays;
-import java.util.List;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomePage {
+    //WebDriver driver = new ChromeDriver();
     WebDriver driver;
     public HomePage(WebDriver driver) {this.driver = driver;}
 
@@ -20,7 +20,8 @@ public class HomePage {
     By supportTab= By.cssSelector("#l1_support");
 
 
-    public void validationOfTabs() {
+    public void validationOfTabs() throws InterruptedException {
+        Thread.sleep(1000);
         String text = driver.findElement(microsoft365Tab).getText();
         System.out.println("Tab: " + text);
         String text0 = driver.findElement(teamsTab).getText();
@@ -43,5 +44,12 @@ public class HomePage {
 
     public void clickOnWindowsTab () {
         driver.findElement(windowsTab).click();
+    }
+
+    public void openBrowser() {
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver/chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.microsoft.com/en-us/");
+
     }
 }
